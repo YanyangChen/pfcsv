@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:body style="margin-left:50px">
+<h:form>
+    <p:panel header="Validate">
+        <h:panelGrid columns="4" cellpadding="5">
+            <h:outputLabel for="text" value="Text: (Change)" />
+            <!--<p:inputText id="regex" value="#{validationView.regexText}" validatorMessage="Value does not match pattern test.">
+                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                <p:clientValidator />
+            </p:inputText>
+            <p:message for="regex" />-->
+            <p:inputText id="text" value="#{validationView.text}" required="true" validatorMessage="Value does not match pattern test.">
+                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                <p:clientValidator />
+            </p:inputText>
+            <p:message for="text"  />
+
+            <h:outputLabel for="integer" value="Integer: (Keyup)" />
+            <p:inputText id="integer" value="#{validationView.integer}" validatorMessage="must be integer">
+                <p:clientValidator event="keyup"/>
+            </p:inputText>
+            <p:message for="integer" display="icon" />
+            <h:outputText value="#{validationView.integer}" />
+        </h:panelGrid>
+
+        <p:commandButton value="Save" ajax="false" icon="pi pi-check" validateClient="true" />
+    </p:panel>
+</h:form>
+</h:body>
+</html>
